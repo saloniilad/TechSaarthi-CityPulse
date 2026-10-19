@@ -87,6 +87,12 @@ export default function UserLogin() {
             {loading ? "Logging in..." : "Log In"}
           </button>
         </form>
+        <Link
+          to="/forgot-password?type=user"
+          className="mt-2 block text-right text-sm font-medium text-blue-600 hover:text-blue-800"
+        >
+          Forgot Password?
+        </Link>
 
         <p className="text-center text-gray-600 mt-6">
           Don't have an account?{" "}

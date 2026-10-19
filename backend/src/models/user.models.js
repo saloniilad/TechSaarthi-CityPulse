@@ -48,6 +48,16 @@ const userSchema = new mongoose.Schema(
     workLocation: {
       type: String,
       trim: true
+    },
+
+    resetPasswordToken: {
+      type: String,
+      default: null
+    },
+
+    resetPasswordExpires: {
+      type: Date,
+      default: null
     }
   },
   { timestamps: true }

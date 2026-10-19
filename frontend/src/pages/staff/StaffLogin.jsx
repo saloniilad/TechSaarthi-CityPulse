@@ -3,6 +3,7 @@ import { staffLogin } from "../../api/auth.api";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
+
 export default function StaffLogin() {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -84,6 +85,12 @@ export default function StaffLogin() {
             {loading ? "Logging in..." : "Log In"}
           </button>
         </form>
+        <Link
+          to="/forgot-password?type=user"
+          className="mt-2 block text-right text-sm font-medium text-blue-600 hover:text-blue-800"
+        >
+          Forgot Password?
+        </Link>
 
         <p className="text-center text-gray-600 mt-6">
           New to the team?{" "}

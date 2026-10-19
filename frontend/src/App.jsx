@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import UserLogin from "./pages/user/UserLogin";
 import UserRegister from "./pages/user/UserRegister";
 import UserDashboard from "./pages/user/UserDashboard";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 import StaffLogin from "./pages/staff/StaffLogin";
 import StaffRegister from "./pages/staff/StaffRegister";
@@ -64,6 +66,15 @@ export default function App() {
           {/* ADMIN - No protection, direct access */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route
+            path="/forgot-password"
+            element={<ForgotPassword />}
+          />
+
+          <Route
+            path="/reset-password"
+            element={<ResetPassword />}
+          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -141,6 +141,8 @@ const openAssignModal = async (incident) => {
         workLocation: incident.location.address // ✅ matches User schema
       }
     });
+    console.log("🔥 STAFF RETURNED BY BACKEND:");
+    console.log(res.data.data);
 
     setStaffList(res.data.data || []);
   } catch (err) {

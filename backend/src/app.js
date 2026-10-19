@@ -4,15 +4,9 @@ import cors from "cors";
 import { ApiError } from "./utils/ApiError.js";
 
 const app = express();
+import passwordResetRoutes from "./routes/passwordResetRoutes.js";
 
-// Middleware
-app.use("/uploads", express.static("uploads"));
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true
-}));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 // Routes
 import incidentRouter from "./routes/incident.routes.js";
@@ -21,7 +15,14 @@ import staffAuthRouter from "./routes/staff.auth.routes.js";
 import adminAuthRouter from "./routes/admin.auth.routes.js";
 import staffRoutes from "./routes/staff.routes.js";
 
-
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api/v1/auth", passwordResetRoutes);
+app.use("/uploads", express.static("uploads"));
 app.use("/api/v1/incidents", incidentRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/staff/auth", staffAuthRouter);
@@ -91,5 +92,7 @@ app.use((err, req, res, next) => {
     ...(process.env.NODE_ENV === "development" && { stack: err.stack })
   });
 });
-
+app.get("/favicon.ico", (req, res) => {
+  res.status(204).end();
+});
 export default app;

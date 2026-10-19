@@ -146,7 +146,7 @@ export default function ReportIncident() {
 
       if (data.success) {
         alert("Incident reported successfully!");
-        navigate("/user-dashboard");
+        navigate("/user/dashboard");
       } else {
         setError(data.message || "Failed to submit incident");
       }
@@ -164,7 +164,7 @@ export default function ReportIncident() {
         {/* Header */}
         <div className="mb-8">
           <button
-            onClick={() => navigate("/user-dashboard")}
+            onClick={() => navigate("/user/dashboard")}
             className="text-blue-600 hover:text-blue-700 font-medium mb-4 flex items-center gap-2"
           >
             ← Back to Dashboard
